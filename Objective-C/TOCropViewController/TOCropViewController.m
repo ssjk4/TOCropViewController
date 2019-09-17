@@ -1035,8 +1035,16 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     self.toolbar.doneTextButtonTitle = title;
 }
 
+- (void)setDoneButtonTitleColor:(UIColor *)doneButtonTitleColor {
+    self.toolbar.doneTextButtonTitleColor = doneButtonTitleColor;
+}
+
 - (void)setCancelButtonTitle:(NSString *)title {
     self.toolbar.cancelTextButtonTitle = title;
+}
+
+- (void)setCancelButtonTitleColor:(UIColor *)cancelButtonTitleColor {
+    self.toolbar.cancelTextButtonTitleColor = cancelButtonTitleColor;
 }
 
 - (TOCropView *)cropView {

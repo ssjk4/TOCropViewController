@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) UIButton *doneTextButton;
 @property (nonatomic, strong, readonly) UIButton *doneIconButton;
 @property (nonatomic, copy) NSString *doneTextButtonTitle;
+@property (nonatomic, strong) UIColor *doneTextButtonTitleColor;
 
 
 /* The 'Cancel' buttons to cancel the crop. The text button is displayed
@@ -46,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) UIButton *cancelIconButton;
 @property (nonatomic, readonly) UIView *visibleCancelButton;
 @property (nonatomic, copy) NSString *cancelTextButtonTitle;
+@property (nonatomic, strong) UIColor *cancelTextButtonTitleColor;
 
 /* The cropper control buttons */
 @property (nonatomic, strong, readonly)  UIButton *rotateCounterclockwiseButton;

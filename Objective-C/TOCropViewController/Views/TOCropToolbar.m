@@ -77,7 +77,10 @@
 																  resourceBundle,
                                                                   nil)
                      forState:UIControlStateNormal];
-    [_doneTextButton setTitleColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f] forState:UIControlStateNormal];
+    UIColor *titleColor = self.doneTextButtonTitleColor ?
+                            self.doneTextButtonTitleColor :
+                            [UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f];
+    [_doneTextButton setTitleColor:titleColor forState:UIControlStateNormal];
     [_doneTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f]];
     [_doneTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_doneTextButton sizeToFit];
@@ -90,7 +93,9 @@
     [self addSubview:_doneIconButton];
     
     _cancelTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    
+    if (self.cancelTextButtonTitleColor) {
+        [_cancelTextButton setTitleColor:self.cancelTextButtonTitleColor forState:UIControlStateNormal];
+    }
     [_cancelTextButton setTitle: _cancelTextButtonTitle ?
         _cancelTextButtonTitle : NSLocalizedStringFromTableInBundle(@"Cancel",
 																	@"TOCropViewControllerLocalizable",
@@ -382,10 +387,20 @@
     [_cancelTextButton sizeToFit];
 }
 
+- (void)setCancelTextButtonTitleColor:(UIColor *)cancelTextButtonTitleColor {
+    _cancelTextButtonTitleColor = cancelTextButtonTitleColor;
+    [_cancelTextButton setTitleColor:_cancelTextButtonTitleColor forState:UIControlStateNormal];
+}
+
 - (void)setDoneTextButtonTitle:(NSString *)doneTextButtonTitle {
     _doneTextButtonTitle = doneTextButtonTitle;
     [_doneTextButton setTitle:_doneTextButtonTitle forState:UIControlStateNormal];
     [_doneTextButton sizeToFit];
+}
+
+- (void)setDoneTextButtonTitleColor:(UIColor *)doneTextButtonTitleColor {
+    _doneTextButtonTitleColor = doneTextButtonTitleColor;
+    [_doneTextButton setTitleColor:_doneTextButtonTitleColor forState:UIControlStateNormal];
 }
 
 #pragma mark - Image Generation -
@@ -448,9 +463,10 @@
     UIGraphicsBeginImageContextWithOptions((CGSize){18,21}, NO, 0.0f);
     {
         //// Rectangle 2 Drawing
-        UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(0, 9, 12, 12)];
-        [UIColor.whiteColor setFill];
-        [rectangle2Path fill];
+        UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(1, 9, 11, 11)];
+        [UIColor.whiteColor setStroke];
+        rectangle2Path.lineWidth = 1;
+        [rectangle2Path stroke];
         
         
         //// Rectangle 3 Drawing

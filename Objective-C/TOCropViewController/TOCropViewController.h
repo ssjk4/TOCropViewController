@@ -167,12 +167,14 @@
  Setting this will override the Default which is a localized string for "Done".
  */
 @property (nullable, nonatomic, copy) NSString *doneButtonTitle;
+@property (nullable, nonatomic, strong) UIColor *doneButtonTitleColor;
 
 /**
  Title for the 'Cancel' button.
  Setting this will override the Default which is a localized string for "Cancel".
  */
 @property (nullable, nonatomic, copy) NSString *cancelButtonTitle;
+@property (nullable, nonatomic, strong) UIColor *cancelButtonTitleColor;
 
 /**
  Shows a confirmation dialog when the user hits 'Cancel' and there are pending changes.

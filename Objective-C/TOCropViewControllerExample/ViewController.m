@@ -40,7 +40,8 @@
     //cropController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare; //Set the initial aspect ratio as a square
     //cropController.aspectRatioLockEnabled = YES; // The crop box is locked to the aspect ratio and can't be resized away from it
     //cropController.resetAspectRatioEnabled = NO; // When tapping 'reset', the aspect ratio will NOT be reset back to default
-    //cropController.aspectRatioPickerButtonHidden = YES;
+    cropController.aspectRatioPickerButtonHidden = YES;
+    cropController.resetButtonHidden = YES;
 
     // -- Uncomment this line of code to place the toolbar at the top of the view controller --
     //cropController.toolbarPosition = TOCropViewControllerToolbarPositionTop;
@@ -51,10 +52,12 @@
     //                                       @(TOCropViewControllerAspectRatioPreset3x2)];
 
     //cropController.rotateButtonsHidden = YES;
-    //cropController.rotateClockwiseButtonHidden = NO;
+    cropController.rotateClockwiseButtonHidden = YES;
     
     //cropController.doneButtonTitle = @"Title";
     //cropController.cancelButtonTitle = @"Title";
+    cropController.doneButtonTitleColor = UIColor.whiteColor;
+    cropController.cancelButtonTitleColor = UIColor.whiteColor;
 
     // -- Uncomment this line of code to show a confirmation dialog when cancelling --
     //cropController.showCancelConfirmationDialog = YES;
